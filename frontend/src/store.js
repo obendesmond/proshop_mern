@@ -53,9 +53,10 @@ const reducer = combineReducers({
   orderList: orderListReducer,
 })
 
-const cartItemsFromStorage = localStorage.getItem('cartItems')
-  ? JSON.parse(localStorage.getItem('cartItems'))
-  : []
+// I have an error saying cartItems is not a function, I think we need to convert it to an array using the Object.keys() here, works for me
+const cartItemsFromStorage = localStorage.getItem('cartItems') ? Object.keys(JSON.parse(localStorage.getItem('cartItems))) : []
+
+
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
